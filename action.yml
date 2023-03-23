@@ -1,4 +1,5 @@
-name: 'test deploy'
+name: 'kvouthtestd'
+description: 'test'
 inputs:
   aplication-name: 
     required: true
