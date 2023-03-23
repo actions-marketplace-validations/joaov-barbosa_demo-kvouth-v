@@ -1,0 +1,15 @@
+name: 'test deploy'
+inputs:
+  aplication-name: 
+    required: true
+  deployment-group:
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+       aws deploy create-deployment \
+       --application-name ${{ inputs.aplication-name }} \
+       --deployment-group-name ${{ inputs.deployment-group }} \
+       --deployment-config-name CodeDeployDefault.OneAtATime \
+       --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
